@@ -74,7 +74,12 @@ const pressedOperation = (op) => {
                 display.style.fontSize = normalFontStyle;
             }
         } else {
-            display.value = memoryGlobalNumber.toFixed(3);
+            if (memoryGlobalNumber < 0.001) {
+                console.log('here');
+                display.value = memoryGlobalNumber.toFixed(14);
+            } else {
+                display.value = memoryGlobalNumber.toFixed(3);
+            }
             if(display.value.length > 9) {
                 display.style.fontSize = smallFontStyle;
             } else {
