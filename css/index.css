@@ -55,6 +55,57 @@ input::-webkit-input-placeholder {
     outline: none;
 }
 
+button:hover {
+    color: #000000;
+    background-color: #ffffff;
+}
+
+.fst-row button:nth-child(4) {
+    background-color: #f39c12;
+    color: #ffffff;
+}
+
+.fst-row button:nth-child(4):hover {
+    color: #000000;
+    background-color: #ffffff;
+} 
+
+.snd-row button:nth-child(4) {
+    background-color: #f39c12;
+}
+
+.snd-row button:nth-child(4):hover {
+    color: #000000;
+    background-color: #ffffff;
+} 
+
+.trd-row button:nth-child(4) {
+    background-color: #f39c12;
+}
+
+.trd-row button:nth-child(4):hover {
+    color: #000000;
+    background-color: #ffffff;
+} 
+
+.fth-row button:nth-child(4) {
+    background-color: #f39c12;
+}
+
+.fth-row button:nth-child(4):hover {
+    color: #000000;
+    background-color: #ffffff;
+} 
+
+.fvth-row button:nth-child(3) {
+    background-color: #f39c12;
+}
+
+.fvth-row button:nth-child(3):hover {
+    color: #000000;
+    background-color: #ffffff;
+} 
+
 .fst-row {
     display: flex;
     justify-content: space-between;
@@ -63,6 +114,11 @@ input::-webkit-input-placeholder {
 .fst-row button {
     color: #000000;
     background-color: #ecf0f1;
+}
+
+.fst-row button:hover {
+    color: #000000;
+    background-color: #ffffff;
 }
 
 .snd-row {
