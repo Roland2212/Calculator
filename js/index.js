@@ -63,13 +63,17 @@ const pressedOperation = (op) => {
         }
         if(memoryGlobalNumber === Math.floor(memoryGlobalNumber)) {
             display.value = memoryGlobalNumber;
-            console.log('im here');
             if(display.value.length > 9) {
                 display.style.fontSize = smallFontStyle;
             } else {
                 display.style.fontSize = normalFontStyle;
             }
         } else {
+            if(display.value.length > 9) {
+                display.style.fontSize = smallFontStyle;
+            } else {
+                display.style.fontSize = normalFontStyle;
+            }
             display.value = memoryGlobalNumber.toFixed(3);
         }
     }
