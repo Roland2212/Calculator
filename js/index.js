@@ -37,6 +37,11 @@ const pressedOperation = (op) => {
     let memoryLocalNumber = parseFloat(display.value);
     if (memoryNewNumber && memoryOperation !== '=') {
         display.value = memoryGlobalNumber;
+        if(display.value.length > 9) {
+            display.style.fontSize = smallFontStyle;
+        } else {
+            display.style.fontSize = normalFontStyle;
+        }
     } else {
         memoryNewNumber = true;
         clearAll.textContent = 'C';
@@ -69,12 +74,12 @@ const pressedOperation = (op) => {
                 display.style.fontSize = normalFontStyle;
             }
         } else {
+            display.value = memoryGlobalNumber.toFixed(3);
             if(display.value.length > 9) {
                 display.style.fontSize = smallFontStyle;
             } else {
                 display.style.fontSize = normalFontStyle;
             }
-            display.value = memoryGlobalNumber.toFixed(3);
         }
     }
     memoryOperation = op;
