@@ -3,9 +3,15 @@
 let memoryGlobalNumber = 0,
     memoryNewNumber = false,
     memoryOperation = '',
-    error = 'ERROR';
+    errorInfinity = 'ERROR';
 
 const display = document.querySelector('.display');
+const clearAll = document.getElementById('clear');
+
+//----------------------------------- Styles --------------------------------------------//
+
+let smallFontStyle = '36px';
+let normalFontStyle = '72px';
 
 //----------------------------------- Functions --------------------------------------------//
 
@@ -19,7 +25,12 @@ const pressedNumber = (digit) => {
         } else {
            display.value += digit;
         }
-    }  
+    }
+    if(display.value.length > 9) {
+        display.style.fontSize = smallFontStyle;
+    } else {
+        display.style.fontSize = normalFontStyle;
+    }
 }
 
 const pressedOperation = (op) => {
@@ -28,6 +39,7 @@ const pressedOperation = (op) => {
         display.value = memoryGlobalNumber;
     } else {
         memoryNewNumber = true;
+        clearAll.textContent = 'C';
         if (memoryOperation === '+') {
             memoryGlobalNumber += memoryLocalNumber;
         } else if (memoryOperation === '-') {
@@ -35,16 +47,32 @@ const pressedOperation = (op) => {
         } else if (memoryOperation === 'x') {
             memoryGlobalNumber *= memoryLocalNumber;
         } else if (memoryOperation === '/') {
-            
-            if(memoryLocalNumber === 0) {
-                display.value = error; // error don t work
-            } 
             memoryGlobalNumber /= memoryLocalNumber;
         } else {
             memoryGlobalNumber = memoryLocalNumber;
         }
     }
-    display.value = memoryGlobalNumber;
+    if (memoryGlobalNumber === Infinity) {
+        display.value = errorInfinity;
+    } else {
+        if (isNaN(memoryGlobalNumber)) {
+            memoryGlobalNumber = 0;
+        } 
+        if (isNaN(memoryLocalNumber)) {
+            memoryLocalNumber = 0;
+        }
+        if(memoryGlobalNumber === Math.floor(memoryGlobalNumber)) {
+            display.value = memoryGlobalNumber;
+            console.log('im here');
+            if(display.value.length > 9) {
+                display.style.fontSize = smallFontStyle;
+            } else {
+                display.style.fontSize = normalFontStyle;
+            }
+        } else {
+            display.value = memoryGlobalNumber.toFixed(3);
+        }
+    }
     memoryOperation = op;
     console.log('global ' + memoryGlobalNumber);
     console.log('local ' + memoryLocalNumber);
@@ -53,7 +81,7 @@ const pressedOperation = (op) => {
 const decimalPressed = () => {
     let memoryLocalDecimal = display.value;
 
-    if (memoryNewNumber) {
+    if (memoryNewNumber || memoryOperation === '') {
         memoryLocalDecimal = '0.';
         memoryNewNumber = false;
     } else {
@@ -74,6 +102,22 @@ const plusMinusChange = () => {
     let memoryLocalPlusMinus = display.value * -1;
     memoryGlobalNumber = memoryLocalPlusMinus;
     display.value = memoryGlobalNumber;
+}
+
+const clearPressed = () => {
+    if(memoryNewNumber) {
+        display.value = '0';
+        memoryGlobalNumber = 0;
+        memoryOperation = '';
+        clearAll.textContent = 'AC';
+    } else {
+        if(memoryGlobalNumber === 0) {
+            clearAll.textContent = 'AC';
+            display.value = '0';
+        } else {
+            display.value = '0';
+        }
+    }
 }
 
 //----------------------------------- Events --------------------------------------------//
@@ -101,3 +145,7 @@ const percent = document
 const plusMinus = document
     .querySelector('.plus-minus')
     .addEventListener('click', plusMinusChange);
+
+const clear = document
+    .querySelector('.clear')
+    .addEventListener('click', clearPressed);

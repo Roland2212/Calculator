@@ -1,52 +1,58 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Calculator</title>
+    <title>Iphone Calculator</title>
+    <link rel="stylesheet" href="css/index.css">
 </head>
+
 <body>
     <div class="calculator-wrapper">
-        <div class="display-wrapper">
-            <input class="display"
-                   type="text" 
-                   placeholder="0" 
-                   readonly
-                   disabled>
-        </div>
-        <div class="buttons">
-            <div class="fst-row">
-                <button class="clear">AC</button>
-                <button class="plus-minus">+/-</button>
-                <button class="percent">%</button>
-                <button class="op devide">/</button>
+        <div class="container">
+            <div class="display-wrapper">
+                <input class="display" 
+                       type="text" 
+                       placeholder="0" 
+                       readonly 
+                       disabled>
             </div>
-            <div class="snd-row">
-                <button class="digit seven">7</button>
-                <button class="digit eight">8</button>
-                <button class="digit nine">9</button>
-                <button class="op multiply">x</button>
-            </div>
-            <div class="trd-row">
-                <button class="digit four">4</button>
-                <button class="digit five">5</button>
-                <button class="digit six">6</button>
-                <button class="op minus">-</button>
-            </div>
-            <div class="fth-row">
-                <button class="digit one">1</button>
-                <button class="digit two">2</button>
-                <button class="digit three">3</button>
-                <button class="op plus">+</button>
-            </div>
-            <div class="fth-row">
-                <button class="digit zero">0</button>
-                <button class="decimal">.</button>
-                <button class="op equal">=</button>
+            <div class="buttons">
+                <div class="fst-row">
+                    <button id="clear" class="clear">AC</button>
+                    <button class="plus-minus">+/-</button>
+                    <button class="percent">%</button>
+                    <button style="background-color: #f39c12; color: #ffffff" class="op devide">/</button>
+                </div>
+                <div class="snd-row">
+                    <button class="digit seven">7</button>
+                    <button class="digit eight">8</button>
+                    <button class="digit nine">9</button>
+                    <button style="background-color: #f39c12" class="op multiply">x</button>
+                </div>
+                <div class="trd-row">
+                    <button class="digit four">4</button>
+                    <button class="digit five">5</button>
+                    <button class="digit six">6</button>
+                    <button style="background-color: #f39c12" class="op minus">-</button>
+                </div>
+                <div class="fth-row">
+                    <button class="digit one">1</button>
+                    <button class="digit two">2</button>
+                    <button class="digit three">3</button>
+                    <button style="background-color: #f39c12" class="op plus">+</button>
+                </div>
+                <div class="fvth-row">
+                    <button class="digit zero">0</button>
+                    <button class="decimal">.</button>
+                    <button style="background-color: #f39c12" class="op equal">=</button>
+                </div>
             </div>
         </div>
     </div>
     <script src="js/index.js"></script>
 </body>
+
 </html>
