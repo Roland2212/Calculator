@@ -3,7 +3,8 @@
 let memoryGlobalNumber = 0,
     memoryNewNumber = false,
     memoryOperation = '',
-    errorInfinity = 'ERROR';
+    errorInfinity = 'ERROR',
+    digitFlag = false;
 
 const display = document.querySelector('.display');
 const clearAll = document.getElementById('clear');
@@ -24,6 +25,7 @@ const pressedNumber = (digit) => {
             display.value = digit;
         } else {
            display.value += digit;
+           digitFlag = true;
         }
     }
     if(display.value.length > 9) {
@@ -94,12 +96,16 @@ const pressedOperation = (op) => {
 const decimalPressed = () => {
     let memoryLocalDecimal = display.value;
 
-    if (memoryNewNumber || memoryOperation === '') {
+    if (memoryNewNumber) {
         memoryLocalDecimal = '0.';
         memoryNewNumber = false;
     } else {
         if(memoryLocalDecimal.indexOf('.') === -1) {
-            memoryLocalDecimal += '.';
+            if(!digitFlag) {
+                memoryLocalDecimal += '0.';
+            } else {
+                memoryLocalDecimal += '.';
+            }
         }   
     }
     display.value = memoryLocalDecimal;
