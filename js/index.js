@@ -75,7 +75,6 @@ const pressedOperation = (op) => {
             }
         } else {
             if (memoryGlobalNumber < 0.001) {
-                console.log('here');
                 display.value = memoryGlobalNumber.toFixed(14);
             } else {
                 display.value = memoryGlobalNumber.toFixed(3);
