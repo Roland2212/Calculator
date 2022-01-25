@@ -18,8 +18,6 @@ Corectly make number decimal;
 Calculating numbers with 3 digit accuracy; 
 
 
-Sorry Iphone for stolen design:))
-
-If you see some bags, please tell me
+Sorry for stolen design:))
 
 created by @Rol4nd2212
